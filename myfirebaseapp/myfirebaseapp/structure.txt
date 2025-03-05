@@ -1,0 +1,19 @@
+myfirebaseapp/
+├── manage.py
+├── myfirebaseapp/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+└── userinfo/
+    ├── __init__.py
+    ├── admin.py
+    ├── apps.py
+    ├── firebase.py
+    ├── migrations/
+    ├── templates/
+    │   ├── add_user.html
+    │   └── list_users.html
+    ├── tests.py
+    ├── urls.py
+    └── views.py
