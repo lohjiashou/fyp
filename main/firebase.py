@@ -4,15 +4,17 @@ import firebase_admin
 from firebase_admin import credentials, db, firestore
 import os
 from datetime import datetime
+import json
 
 
 # Path to the serviceAccountKey.json file
 current_directory = os.path.dirname(os.path.abspath(__file__))
-json_path = os.path.join(current_directory, 'controlsystem-8a38d-firebase-adminsdk-fbsvc-1e3318d9a3.json')
+firebase_creds = os.environ.get('FIREBASE_CREDENTIALS')
 
 # Initialize the Firebase Admin SDK
 if not firebase_admin._apps:
-    cred = credentials.Certificate(json_path)
+    creds_dict = json.loads(firebase_creds)
+    cred = credentials.Certificate(creds_dict)
     firebase_admin.initialize_app(cred, {
         'databaseURL': 'https://controlsystem-8a38d-default-rtdb.firebaseio.com/'  # Replace with your Firebase database URL
     })
